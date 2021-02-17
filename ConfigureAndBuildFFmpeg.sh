@@ -4,7 +4,6 @@ set -x #echo on
 #Set Variables
 PREFIX=/usr/local
 FFMPEG_VERSION=n4.3.1
-VMAF_VERSION=v1.5.1
 THREADS=2
 
 #install basic dependencies
@@ -56,29 +55,6 @@ apt install \
   tclsh \
   libsrt-dev
 
-#build libvmaf
-if [ ! -d ./vmaf ]
-then
-    git clone https://github.com/Netflix/vmaf.git
-fi
-pushd vmaf
-git fetch --tags
-git checkout $VMAF_VERSION -b release
-cd libvmaf
-meson build --buildtype release
-ninja -vC build
-ninja -vC build install
-popd
-
-# #build libsrt
-# git clone https://github.com/Haivision/srt.git
-# pushd srt
-# git checkout $SRT_VERSION -b release
-# ./configure --prefix $PREFIX --enable-c++-deps #--enable-shared=OFF --enable-static=ON
-# make -j $THREADS
-# make install
-# popd
-
 #build ffmpeg
 if [ ! -d ./ffmpeg ]
 then
@@ -110,7 +86,6 @@ FFMPEG_PACKAGES="
     --enable-opengl \
     --enable-openssl \
     --enable-libsrt"
-    #--enable-libvmaf
 ./configure --logfile="configure.log" --prefix=$PREFIX $FFMPEG_OPTIONS $FFMPEG_PACKAGES
 make -j $THREADS
 make install
