@@ -3,7 +3,7 @@ set -x #echo on
 
 #Set Variables
 PREFIX=/usr/local
-FFMPEG_VERSION=n4.3.1
+FFMPEG_VERSION=n4.4
 THREADS=2
 
 #install basic dependencies
@@ -28,14 +28,12 @@ apt install \
   zlib1g-dev \
   yasm \
   nasm \
-  python3 \
-  python3-pip \
-  python3-setuptools \
-  python3-wheel \
+  # python3 \
+  # python3-pip \
+  # python3-setuptools \
+  # python3-wheel \
   ninja-build \
   doxygen
-
-pip3 install --user meson
 
 #install media dependencies
 apt install \
