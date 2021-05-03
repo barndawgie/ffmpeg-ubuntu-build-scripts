@@ -4,7 +4,7 @@ set -x #echo on
 #Set Variables
 PREFIX=/usr/local
 FFMPEG_VERSION=n4.4
-THREADS=2
+THREADS=3
 
 #install basic dependencies
 apt install \
