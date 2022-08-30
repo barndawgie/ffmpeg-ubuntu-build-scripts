@@ -3,7 +3,7 @@ set -x #echo on
 
 #Set Variables
 PREFIX=/usr/local
-FFMPEG_VERSION=n4.4
+FFMPEG_VERSION=n5.1
 THREADS=3
 
 #install basic dependencies
@@ -28,10 +28,6 @@ apt install \
   zlib1g-dev \
   yasm \
   nasm \
-  # python3 \
-  # python3-pip \
-  # python3-setuptools \
-  # python3-wheel \
   ninja-build \
   doxygen
 
@@ -51,7 +47,7 @@ apt install \
   libwebp-dev \
   libxvidcore-dev \
   tclsh \
-  libsrt-dev
+  libsrt-openssl-dev
 
 #build ffmpeg
 if [ ! -d ./ffmpeg ]
