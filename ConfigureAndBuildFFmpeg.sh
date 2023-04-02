@@ -3,7 +3,7 @@ set -x #echo on
 
 #Set Variables
 PREFIX=/usr/local
-FFMPEG_VERSION=n5.1
+FFMPEG_VERSION=n5.1.3
 THREADS=3
 
 #install basic dependencies
